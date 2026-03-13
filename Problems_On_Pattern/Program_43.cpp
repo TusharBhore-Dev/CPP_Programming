@@ -1,0 +1,128 @@
+/////////////////////////////////////////////////////////
+//////
+////
+///     Expected Pattern : 1    1   1   1   1
+///                        2    2   2   2   2
+///                        3    3   3   3   3
+////
+/////
+/////////////////////////////////////////////////////////
+
+/*
+    Algorithm
+
+    START
+        Accept number of rows and columns from user
+        If either value is less than or equal to zero, display error
+        Create object of Pattern class with rows and columns
+        Display the 2D pattern where each row contains its row index using nested while loops
+    STOP
+*/
+
+/////////////////////////////////////////////////////////////////
+// 
+//  Required Header files
+//
+/////////////////////////////////////////////////////////////////
+
+#include<iostream>
+
+using namespace std;
+
+/////////////////////////////////////////////////////////////////
+//
+//  Class Name : Pattern
+//  Description : It is used to display the pattern
+//  Author :      Tushar vikas bhore
+//  Date :        09/03/2026
+//
+/////////////////////////////////////////////////////////////////
+
+class Pattern
+{
+
+    public : 
+
+    int iRow = 0 , iCol = 0 , i = 0 , j = 0;
+
+            Pattern( int iRow , int iCol )
+            {
+
+                this->iRow = iRow;
+                this->iCol = iCol;
+                
+            }
+
+            void DisplayPattern()
+            {
+
+                i = 1;
+                
+                while( i <= iRow )
+                {
+
+                    j = 1;
+                    
+                    while( j <= iCol )
+                    {
+
+                        cout<<i<<"\t";
+                        j++;
+
+                    }
+
+                    cout<<"\n";
+                    i++;
+
+                }
+
+            }
+
+
+};  // End of Pattern class
+
+
+
+/////////////////////////////////////////////////////////////////
+//
+//  Entry point function for the application
+//
+/////////////////////////////////////////////////////////////////
+
+int main()
+{
+
+    int iRow = 0 , iCol = 0;
+
+    cout<< "Enter the number of rows :\t" ;
+    cin>> iRow;
+
+    cout<< "Enter the number of coloms :\t";
+    cin>> iCol;
+
+    if( iRow <= 0 || iCol <= 0 )
+    {
+
+        cout<< "Error : Please provide positive and non zero values only.\n" ;
+        return 0;
+
+    }
+
+    Pattern pobj( iRow , iCol );
+
+    pobj.DisplayPattern();
+
+    return 0;
+
+}   // End of main
+
+/////////////////////////////////////////////////////////////////
+//
+//  Testcases succesfully handaled by the application
+//
+//  Input : 3 5     Output : 1 1 1 1 1, 2 2 2 2 2, 3 3 3 3 3
+//  Input : 2 3     Output : 1 1 1, 2 2 2
+//  Input : -1 5    Output : Error : Please provide positive and non zero values only.
+//  Input : 3 0     Output : Error : Please provide positive and non zero values only.
+//
+/////////////////////////////////////////////////////////////////
